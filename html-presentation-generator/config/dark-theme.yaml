@@ -1,0 +1,45 @@
+# Dark Theme Configuration
+# Optimized for screen recording and live presentation
+
+name: dark
+description: High contrast dark theme for recording and screen share
+
+colors:
+  background: "#1a1a2e"
+  surface: "#16213e"
+  primary: "#0f3460"
+  accent: "#e94560"
+  text:
+    primary: "#ffffff"
+    secondary: "#a0a0a0"
+    muted: "#6a6a6a"
+
+  sidebar:
+    background: "#0f0f1a"
+    text: "#a0a0a0"
+    active: "#e94560"
+    hover: "#ffffff"
+
+  counter:
+    text: "#6a6a6a"
+
+typography:
+  font_family: "'Inter', 'Segoe UI', system-ui, sans-serif"
+  heading_1: "64px / 700"
+  heading_2: "48px / 600"
+  heading_3: "36px / 600"
+  body: "28px / 400"
+  large_number: "120px / 700 / #e94560"
+
+spacing:
+  slide_padding: "60px 80px"
+  element_gap: "24px"
+  sidebar_width: "200px"
+
+transitions:
+  slide: "opacity 0.3s ease-in-out"
+
+visual_elements:
+  bullet_color: "#e94560"
+  quote_border: "#e94560"
+  diagram_stroke: "#e94560"

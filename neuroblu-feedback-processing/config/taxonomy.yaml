@@ -1,0 +1,356 @@
+# NeuroBlu Feedback Processing - Taxonomy Configuration
+
+# Google Sheets Database Configuration
+google_sheets:
+  spreadsheet_id: "1lDZwWEEmZByDsbiYvYDAQodsu4Hk-qpp1KC9MS-fLO4"
+  worksheet_name: "All Feedback"
+
+# Product Taxonomy (7 products)
+products:
+  - name: "NeuroBlu Analytics"
+    keywords:
+      - neuroblu analytics
+      - platform
+      - cohort explorer
+      - sql studio
+      - data dictionary
+      - analytics
+      - cohort
+      - study
+      - query
+
+  - name: "NeuroBot"
+    keywords:
+      - neurobot
+      - ai assistant
+      - sql assistant
+      - text-to-sql
+      - query assistant
+
+  - name: "Symptom Intelligence"
+    keywords:
+      - symptom intelligence
+      - measurement lookup
+      - phq-9
+      - gad-7
+      - assessment scales
+      - clinical scales
+
+  - name: "Data Platform"
+    keywords:
+      - infrastructure
+      - performance
+      - deployment
+      - databricks
+      - data pipeline
+      - etl
+
+  - name: "Documentation"
+    keywords:
+      - documentation
+      - user manual
+      - help
+      - guides
+      - training
+      - tutorials
+
+  - name: "Data Quality"
+    keywords:
+      - data quality
+      - data accuracy
+      - completeness
+      - validation
+      - data issues
+
+  - name: "Other"
+    keywords: []
+
+# Category Taxonomy (10 categories)
+categories:
+  - name: "Feature Request"
+    description: "New capability or enhancement user is asking for"
+
+  - name: "Bug"
+    description: "Broken functionality or incorrect behavior"
+
+  - name: "Improvement"
+    description: "Enhancement to existing feature or workflow"
+
+  - name: "Blocker"
+    description: "Critical issue preventing user from accomplishing task"
+
+  - name: "Question"
+    description: "Question that reveals product gap or confusion"
+
+  - name: "Client Feedback"
+    description: "General feedback about experience or outcomes"
+
+  - name: "Strategic Initiative"
+    description: "Longer-term opportunity or market insight"
+
+  - name: "Performance"
+    description: "Speed, latency, or resource usage issues"
+
+  - name: "Usability"
+    description: "User experience or interface concerns"
+
+  - name: "Other"
+    description: "Feedback that doesn't fit other categories"
+
+# Priority Definitions
+priorities:
+  P0:
+    description: "Critical - Blocks user completely"
+    examples:
+      - System down or inaccessible
+      - Data corruption or loss
+      - Security vulnerability
+
+  P1:
+    description: "High - Major impact on user workflow"
+    examples:
+      - Feature widely requested by multiple clients
+      - Significant workaround required
+      - Competitive disadvantage
+
+  P2:
+    description: "Medium - Notable improvement but workarounds exist"
+    examples:
+      - Feature requested by single client
+      - Minor workflow inefficiency
+      - Nice-to-have enhancement
+
+  P3:
+    description: "Low - Minor improvement or edge case"
+    examples:
+      - Polish or refinement
+      - Rare use case
+      - Future consideration
+
+# Customer Segment Taxonomy (8 segments)
+segments:
+  Pharma:
+    keywords:
+      - pharma
+      - pharmaceutical
+      - drug
+      - bms
+      - bristol myers squibb
+      - pfizer
+      - novartis
+      - lilly
+      - eli lilly
+      - merck
+      - astrazeneca
+      - roche
+      - gsk
+      - sanofi
+      - abbvie
+      - takeda
+      - boehringer
+
+  Biotech:
+    keywords:
+      - biotech
+      - biotechnology
+      - genentech
+      - amgen
+      - biogen
+      - gilead
+      - regeneron
+      - vertex
+      - moderna
+      - biontech
+
+  Payor:
+    keywords:
+      - payer
+      - payor
+      - insurance
+      - health plan
+      - cigna
+      - anthem
+      - uhc
+      - united healthcare
+      - humana
+      - aetna
+      - bcbs
+      - blue cross
+      - cms
+      - medicaid
+      - medicare
+
+  Provider:
+    keywords:
+      - hospital
+      - health system
+      - clinic
+      - healthcare provider
+      - mayo
+      - cleveland clinic
+      - johns hopkins
+      - kaiser
+      - hca
+      - ascension
+
+  Healthtech:
+    keywords:
+      - healthtech
+      - health tech
+      - digital health
+      - saas
+      - software
+      - platform
+      - startup
+      - health it
+
+  Government:
+    keywords:
+      - cms
+      - fda
+      - nih
+      - samhsa
+      - va
+      - veterans affairs
+      - government
+      - federal
+      - agency
+      - public health
+
+  Academic Research:
+    keywords:
+      - university
+      - academic
+      - research institution
+      - college
+      - stanford
+      - harvard
+      - yale
+      - mit
+      - research center
+      - academic medical center
+
+  Other:
+    keywords: []
+
+# Department Taxonomy (10 departments)
+departments:
+  Research/RWD:
+    keywords:
+      - real-world
+      - rwe
+      - rwd
+      - data science
+      - research
+      - evidence generation
+      - observational
+      - database research
+
+  HEOR:
+    keywords:
+      - heor
+      - health economics
+      - outcomes research
+      - value
+      - evidence
+      - cost effectiveness
+      - budget impact
+      - pharmacoeconomics
+
+  Epidemiology:
+    keywords:
+      - epidemiology
+      - epi
+      - population health
+      - disease burden
+      - prevalence
+      - incidence
+      - public health
+
+  Clinical Development:
+    keywords:
+      - clinical
+      - trial
+      - development
+      - phase
+      - protocol
+      - study
+      - clinical research
+      - drug development
+
+  Medical Affairs:
+    keywords:
+      - medical affairs
+      - msl
+      - medical science liaison
+      - scientific
+      - publications
+      - medical information
+
+  Translational/Safety:
+    keywords:
+      - safety
+      - translational
+      - pharmacovigilance
+      - adverse
+      - drug safety
+      - signal detection
+      - toxicology
+
+  Commercial:
+    keywords:
+      - commercial
+      - marketing
+      - sales
+      - brand
+      - launch
+      - promotional
+
+  Market Access:
+    keywords:
+      - market access
+      - reimbursement
+      - pricing
+      - payer
+      - formulary
+      - access
+
+  Academic Association:
+    keywords:
+      - academic
+      - professor
+      - researcher
+      - university
+      - faculty
+      - postdoc
+      - graduate student
+
+  Psych or CNS Department:
+    keywords:
+      - psychiatry
+      - psychiatric
+      - cns
+      - neurology
+      - neurological
+      - behavioral health
+      - mental health
+      - brain
+
+  Other:
+    keywords: []
+
+# AI Model Configuration
+claude:
+  model: "claude-sonnet-4-5-20250929"
+  extraction:
+    temperature: 0.0
+    max_tokens: 4096
+  enrichment:
+    temperature: 0.0
+    max_tokens: 512
+
+# Processing Configuration
+processing:
+  deduplicate: true
+  duplicate_threshold: 0.85  # 85% title similarity
+  batch_size: 100  # Google Sheets batch size

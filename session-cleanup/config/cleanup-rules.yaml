@@ -1,0 +1,199 @@
+# Session Cleanup Configuration
+# Path mappings, frontmatter templates, and migration rules
+
+# ============================================
+# MOC Mappings: Which MOC to update based on file path
+# ============================================
+moc_mappings:
+  # Work engagements
+  "💼 Work/S2N-Health/":
+    moc: "💼 Work/S2N-Health/_S2N-Health-MOC.md"
+    commit_prefix: "S2N"
+
+  "💼 Work/NeuroBlu/":
+    moc: "💼 Work/NeuroBlu/_NeuroBlu-MOC.md"
+    commit_prefix: "NeuroBlu"
+
+  # Content creation
+  "📝 Content/Blog/":
+    moc: "📝 Content/🗺️ Content Creation Hub - MOC.md"
+    commit_prefix: "Content"
+
+  "📝 Content/LinkedIn/":
+    moc: "📝 Content/🗺️ Content Creation Hub - MOC.md"
+    commit_prefix: "Content"
+
+  # Projects
+  "🚀 Projects/Studio-Dutch/":
+    moc: "🚀 Projects/Studio-Dutch/Studio-Dutch-README.md"
+    commit_prefix: "Studio Dutch"
+
+  "🚀 Projects/GenAI Training/":
+    moc: "🚀 Projects/GenAI Training/README.md"
+    commit_prefix: "GenAI Training"
+
+  "🚀 Projects/InstantDoc/":
+    moc: "🚀 Projects/InstantDoc/🗺️ InstantDoc Project Hub - MOC.md"
+    commit_prefix: "InstantDoc"
+
+  # Personal
+  "🏠 Personal/Financial-Planning/":
+    moc: "🏠 Personal/Personal-Life-MOC.md"
+    commit_prefix: "Personal"
+
+  "🏠 Personal/Charleston-Home-Search-2025/":
+    moc: "🏠 Personal/Personal-Life-MOC.md"
+    commit_prefix: "Home Search"
+
+  # Knowledge Base
+  "🧠 Knowledge Base/Resources/":
+    moc: "🧠 Knowledge Base/Resources/_Literature-Notes-Index.md"
+    commit_prefix: "Knowledge"
+
+  # Career
+  "💼 Career/":
+    moc: "💼 Career/🗺️ Career & Resume Hub - MOC.md"
+    commit_prefix: "Career"
+
+  # Network
+  "🤝 Network/":
+    moc: "🤝 Network/README.md"
+    commit_prefix: "Network"
+
+# ============================================
+# Frontmatter Templates: Default metadata by content type
+# ============================================
+frontmatter_templates:
+  blog:
+    tags:
+      - "#type/blog"
+      - "#status/draft"
+    platform: blog
+    created: "{{date}}"
+
+  linkedin:
+    tags:
+      - "#type/linkedin"
+      - "#status/draft"
+    platform: linkedin
+    created: "{{date}}"
+
+  literature_note:
+    tags:
+      - "#type/literature-note"
+    source: ""
+    author: ""
+    created: "{{date}}"
+
+  meeting_note:
+    tags:
+      - "#type/meeting"
+    attendees: []
+    created: "{{date}}"
+
+  project_doc:
+    tags:
+      - "#type/project-doc"
+    project: ""
+    status: active
+    created: "{{date}}"
+
+  strategy_doc:
+    tags:
+      - "#type/strategy"
+      - "#confidential"
+    audience: internal
+    created: "{{date}}"
+
+# ============================================
+# Landing Pad Migration Rules
+# ============================================
+landing_pad_rules:
+  # Literature notes go to Resources
+  - pattern: "*-Literature-Note.md"
+    destination: "🧠 Knowledge Base/Resources/"
+    frontmatter_type: literature_note
+
+  # PDFs go to Resources (but check gitignore)
+  - pattern: "*.pdf"
+    destination: "🧠 Knowledge Base/Resources/"
+    warn: "Large files may be gitignored"
+
+  # Blog drafts go to Content/Blog
+  - pattern: "*-blog-*.md"
+    destination: "📝 Content/Blog/"
+    frontmatter_type: blog
+
+  # Meeting notes go to Granola
+  - pattern: "*Meeting*.md"
+    destination: "📞 Granola Meeting Notes/"
+    frontmatter_type: meeting_note
+
+  # Default: ask user
+  - pattern: "*"
+    destination: null
+    action: "ask_user"
+
+# ============================================
+# CLAUDE.md Update Triggers
+# ============================================
+claude_md_triggers:
+  # Add to Recent Developments if:
+  recent_developments:
+    - "New project created"
+    - "Major milestone completed"
+    - "New system/capability added"
+    - "Significant decision documented"
+
+  # Update Active Projects table if:
+  active_projects:
+    - "Project status changed"
+    - "Milestone reached"
+    - "New project started"
+
+  # Update Current Priorities if:
+  current_priorities:
+    - "Priority order changed"
+    - "Item completed"
+    - "New priority emerged"
+
+# ============================================
+# Git Commit Patterns
+# ============================================
+commit_patterns:
+  # Single area commit
+  single_area: "{prefix}: {summary}"
+
+  # Mixed areas commit
+  mixed: "Session cleanup: {areas_summary}"
+
+  # Always append
+  co_author: "Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>"
+
+  # Body format
+  body_template: |
+    - {change_1}
+    - {change_2}
+    - {change_3}
+
+    {co_author}
+
+# ============================================
+# Files to Never Auto-Modify
+# ============================================
+protected_files:
+  - "CLAUDE.md"  # Only suggest, never auto-edit without confirmation
+  - ".gitignore"
+  - "*.env"
+  - "*credentials*"
+
+# ============================================
+# Ignore Patterns (Skip in cleanup)
+# ============================================
+ignore_patterns:
+  - ".obsidian/"
+  - ".git/"
+  - "node_modules/"
+  - "__pycache__/"
+  - "*.pyc"
+  - ".DS_Store"

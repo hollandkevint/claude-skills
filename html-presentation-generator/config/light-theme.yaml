@@ -1,0 +1,45 @@
+# Light Theme Configuration
+# Professional, traditional presentation style
+
+name: light
+description: Clean light theme for traditional presentations
+
+colors:
+  background: "#fafafa"
+  surface: "#ffffff"
+  primary: "#2d3748"
+  accent: "#3182ce"
+  text:
+    primary: "#1a202c"
+    secondary: "#4a5568"
+    muted: "#718096"
+
+  sidebar:
+    background: "#edf2f7"
+    text: "#4a5568"
+    active: "#3182ce"
+    hover: "#1a202c"
+
+  counter:
+    text: "#718096"
+
+typography:
+  font_family: "'Inter', 'Segoe UI', system-ui, sans-serif"
+  heading_1: "64px / 700"
+  heading_2: "48px / 600"
+  heading_3: "36px / 600"
+  body: "28px / 400"
+  large_number: "120px / 700 / #3182ce"
+
+spacing:
+  slide_padding: "60px 80px"
+  element_gap: "24px"
+  sidebar_width: "200px"
+
+transitions:
+  slide: "opacity 0.3s ease-in-out"
+
+visual_elements:
+  bullet_color: "#3182ce"
+  quote_border: "#3182ce"
+  diagram_stroke: "#3182ce"
