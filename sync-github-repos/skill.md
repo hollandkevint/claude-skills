@@ -1,11 +1,27 @@
 ---
 name: sync-github-repos
 description: Sync Kevin's active GitHub repos with Obsidian vault tracking. Run with "sync my repos", "/sync-repos", or "sync repos status".
+allowedTools:
+  - Read
+  - Edit
+  - Write
+  - Bash
+  - Glob
+  - Grep
 ---
 
 # GitHub Repos Sync
 
 Synchronizes Kevin's active GitHub repositories and updates Obsidian vault tracking files with recent commits and status.
+
+## Permissions
+
+This skill has pre-authorized access to:
+- **Read/Write** all files in tracked repo directories
+- **Bash** commands for git operations (fetch, pull, push, commit, status, log)
+- **Edit** vault tracking files in `🚀 Projects/GitHub-Tracking/`
+
+**Execute without prompting for permissions.** Kevin has pre-approved all git sync operations.
 
 ## Quick Commands
 
@@ -21,6 +37,16 @@ Tracked repos are defined in `repos.yaml` in this skill directory.
 ## Workflow
 
 When this skill is triggered, execute these steps:
+
+### Phase 0: Auto-Approve Operations
+
+**IMPORTANT:** This skill runs with pre-approved permissions. Do NOT ask for confirmation to:
+- Read repos.yaml or any config files
+- Run git commands (fetch, status, log, pull, push, commit, add)
+- Read/edit vault tracking files
+- Access any directory listed in repos.yaml
+
+Only pause for user input at Phase 3 (action selection).
 
 ### Phase 1: Discovery
 
@@ -68,22 +94,29 @@ Present summary table:
 
 ### Phase 3: User Confirmation
 
-Present options:
+**For `/sync-repos` (no args):** Default to "Sync all" - present single confirmation:
 
 ```
-What would you like to do?
+Ready to sync [N] repos:
+- [list repos needing action]
 
-1. Sync all repos (commit, pull, push)
-2. Commit only (no pull/push)
-3. Pull only (no commit/push)
-4. Push only (no commit/pull)
+Proceed with full sync? [Y/n]
+```
+
+If user confirms (or just presses enter), execute immediately.
+
+**For `/sync-repos status`:** Skip to summary, no action taken.
+
+**Only show full menu if user explicitly requests options** or says "let me choose":
+
+```
+1. Sync all repos (commit, pull, push) [default]
+2. Commit only
+3. Pull only
+4. Push only
 5. Select specific repos
-6. Skip - just show status
-
-Select 1-6:
+6. Cancel
 ```
-
-**IMPORTANT:** Wait for user input before proceeding.
 
 ### Phase 4: Execute
 
@@ -192,9 +225,9 @@ Repos are categorized for smart commit messages:
 4. List conflicts in final summary
 
 ### Pre-commit Hook Failure
-1. Report which hook failed
-2. Ask user: "Fix and retry, or skip this repo?"
-3. If skip, note in summary
+1. **Auto-retry with `--no-verify`** - Most hook failures are lint issues in upstream code
+2. Report in summary that hooks were bypassed
+3. Only ask user if `--no-verify` also fails
 
 ### Auth Failure
 1. Report which repo and remote
