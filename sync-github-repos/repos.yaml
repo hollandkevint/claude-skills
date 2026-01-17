@@ -1,0 +1,131 @@
+# GitHub Repos to Track
+# Edit this file to add/remove repos from sync
+#
+# Fields:
+#   name: Display name for the repo
+#   path: Local filesystem path (~ expands to home)
+#   remote: Git remote name (usually 'origin')
+#   branch: Default branch to sync
+#   category: work | side-project | personal | portfolio
+#   vault_tracking_file: Path in vault for tracking file (optional)
+#   upstream: Upstream remote for forks (optional)
+
+repos:
+  # === HIGH PRIORITY - Sync frequently ===
+
+  - name: Obsidian-Vault
+    path: ~/Documents/Obsidian Vault
+    remote: origin
+    branch: main
+    category: personal
+    vault_tracking_file: null  # Don't track itself
+
+  - name: BMAD-METHOD
+    path: ~/Documents/GitHub/BMAD-METHOD
+    remote: origin
+    branch: main
+    category: side-project
+    upstream: upstream
+    vault_tracking_file: 🚀 Projects/GitHub-Tracking/bmad_method.md
+
+  - name: neuroblu_product_development
+    path: ~/Documents/GitHub/neuroblu_product_development
+    remote: origin
+    branch: main
+    category: work
+    vault_tracking_file: 🚀 Projects/GitHub-Tracking/neuroblu_product_development.md
+
+  # === MEDIUM PRIORITY ===
+
+  - name: instantdoc
+    path: ~/Documents/GitHub/instantdoc
+    remote: origin
+    branch: ralph-wiggum
+    category: side-project
+    vault_tracking_file: 🚀 Projects/InstantDoc/github-tracking.md
+
+  - name: thinkhaven
+    path: ~/Documents/GitHub/thinkhaven
+    remote: origin
+    branch: main
+    category: side-project
+    vault_tracking_file: 🚀 Projects/GitHub-Tracking/thinkhaven.md
+
+  - name: _archive_neuroblu_sql
+    path: ~/Documents/GitHub/_archive_neuroblu_sql
+    remote: origin
+    branch: main
+    category: work
+    vault_tracking_file: null  # Archive, no active tracking
+
+  - name: star_schema
+    path: ~/Documents/GitHub/star_schema
+    remote: origin
+    branch: feature/complete-star-schema-steps-8-13
+    category: work
+    vault_tracking_file: null
+
+  # === LOW PRIORITY - Stable/infrequent changes ===
+
+  - name: CensusChat
+    path: ~/Documents/GitHub/CensusChat
+    remote: origin
+    branch: main
+    category: portfolio
+    vault_tracking_file: 🚀 Projects/GitHub-Tracking/CensusChat.md
+
+  - name: NeuroBlu-templates
+    path: ~/Documents/GitHub/NeuroBlu-templates
+    remote: origin
+    branch: master
+    category: work
+    vault_tracking_file: null
+
+  - name: claude-skills
+    path: ~/.claude/skills
+    remote: origin
+    branch: main
+    category: personal
+    vault_tracking_file: 🚀 Projects/GitHub-Tracking/claude-skills.md
+
+  # === WORK REPOS (Holmusk/S2N) - Read-only sync ===
+
+  - name: PI
+    path: ~/Documents/GitHub/PI
+    remote: origin
+    branch: master
+    category: work
+    vault_tracking_file: null
+    read_only: true  # Just pull, never commit
+
+  - name: CommonDataModel
+    path: ~/Documents/GitHub/CommonDataModel
+    remote: origin
+    branch: main
+    category: work
+    vault_tracking_file: null
+    read_only: true
+
+  - name: workflow-weaver
+    path: ~/Documents/GitHub/workflow-weaver
+    remote: origin
+    branch: main
+    category: side-project
+    vault_tracking_file: null
+    read_only: true  # Jon's repo
+
+# === EXCLUDED REPOS ===
+# These are not tracked for various reasons:
+#
+# linksavvy - Repository deleted
+# templardata - Authentication broken
+# omcp - git-lfs not installed, causes errors
+# course_agenter - Not a git repo
+# epic_ehr_omop_mapping - Not a git repo
+# holmusk - Not a git repo
+# ideally - Not a git repo
+# markage_flow - Not a git repo
+# mcp_ohdsi - Not a git repo
+# momentum - Not a git repo
+# triage-ally.bfg-report - Not a git repo
+# Old coursework repos (Thanksgiving-Dinner, etc.) - Archived
