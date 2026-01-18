@@ -101,8 +101,6 @@ Present all proposed changes in structured format:
 Session cleanup: [summary]
 
 - [bullet points of changes]
-
-Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>
 ```
 
 **Proceed? [Y/n]**
@@ -119,7 +117,7 @@ After user approves:
 3. **Add frontmatter** - Edit new files to add metadata
 4. **Add links** - Insert wiki-links where appropriate
 5. **Stage changes** - `git add -A`
-6. **Commit** - With descriptive message and co-authorship
+6. **Commit** - With descriptive message
 7. **Push** - `git push origin main`
 
 ### Step 5: Summary
